@@ -33,6 +33,25 @@ def convert(src: Path, dst: Path):
     return im.size
 
 
+SITE_URL = "https://dolmyan.github.io/perez-model/"
+
+
+def write_sitemap(data):
+    from datetime import date
+    imgs = ([data["hero"]["src"]] if data["hero"] else []) + [x["src"] for x in data["items"]]
+    lines = "\n".join(f"    <image:image><image:loc>{SITE_URL}{s}</image:loc></image:image>" for s in imgs)
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>{SITE_URL}</loc>
+    <lastmod>{date.today().isoformat()}</lastmod>
+{lines}
+  </url>
+</urlset>
+"""
+    (ROOT / "site" / "sitemap.xml").write_text(xml)
+
+
 def files(folder: Path):
     return sorted(p for p in folder.glob("*") if p.suffix.lower() in EXT)
 
@@ -53,8 +72,16 @@ def main():
             w, h = convert(p, OUT / name)
             data["items"].append({"src": f"img/{name}", "cat": cat, "w": w, "h": h})
 
+    # во вкладке All чередуем категории: fashion, body, image, fashion...
+    by = {c: [x for x in data["items"] if x["cat"] == c] for c in CATS}
+    mixed = []
+    for i in range(max(len(v) for v in by.values())):
+        mixed += [by[c][i] for c in CATS if i < len(by[c])]
+    data["items"] = mixed
+
     js = "window.PHOTOS = " + json.dumps(data, indent=1) + ";\n"
     (ROOT / "site" / "photos.js").write_text(js)
+    write_sitemap(data)
     counts = {c: sum(1 for x in data["items"] if x["cat"] == c) for c in CATS}
     print("hero:", "yes" if data["hero"] else "no", "|", counts)
 
