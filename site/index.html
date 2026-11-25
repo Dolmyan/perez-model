@@ -1,11 +1,58 @@
-<title>Perez Model</title>
+<!doctype html>
+<html lang="en">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Perez, universal model for fashion, body and image work. Comp card, portfolio and booking.">
-<meta property="og:title" content="Perez. Universal model">
-<meta property="og:description" content="Fashion, body and image. 22 y.o., 183 cm. Book for campaigns, lookbooks and e-commerce.">
-<meta property="og:image" content="img/hero.jpg">
+<title>Perez Model | Universal Fashion, Body and Image Model</title>
+<meta name="description" content="Perez is a universal male model, 22, 183 cm. Fashion, body and image work: lookbooks, campaigns, e-commerce, beauty. Portfolio, comp card and booking.">
+<meta name="keywords" content="Perez model, Perez, perez_model, male model, fashion model, universal model, black male model, model booking">
+<meta name="author" content="Perez">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://dolmyan.github.io/perez-model/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#EBEAE5">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Perez Model">
+<meta property="og:title" content="Perez Model | Universal model">
+<meta property="og:description" content="Fashion, body and image. 22 y.o., 183 cm. Book Perez for campaigns, lookbooks and e-commerce.">
+<meta property="og:url" content="https://dolmyan.github.io/perez-model/">
+<meta property="og:image" content="https://dolmyan.github.io/perez-model/img/hero.jpg">
+<meta property="og:image:alt" content="Perez, black and white portrait">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Perez Model | Universal model">
+<meta name="twitter:description" content="Fashion, body and image. 22 y.o., 183 cm. Portfolio and booking.">
+<meta name="twitter:image" content="https://dolmyan.github.io/perez-model/img/hero.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://dolmyan.github.io/perez-model/#perez",
+      "name": "Perez",
+      "alternateName": ["Perez Model", "perez_model"],
+      "jobTitle": "Fashion Model",
+      "description": "Universal male model for fashion, body and image work.",
+      "url": "https://dolmyan.github.io/perez-model/",
+      "image": "https://dolmyan.github.io/perez-model/img/hero.jpg",
+      "height": { "@type": "QuantitativeValue", "value": 183, "unitCode": "CMT" },
+      "gender": "Male",
+      "sameAs": ["https://www.instagram.com/perez_model/"]
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://dolmyan.github.io/perez-model/",
+      "url": "https://dolmyan.github.io/perez-model/",
+      "name": "Perez Model",
+      "inLanguage": "en",
+      "mainEntity": { "@id": "https://dolmyan.github.io/perez-model/#perez" }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -40,6 +87,7 @@ body {
   overflow-x: hidden;
 }
 img { max-width: 100%; display: block; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 a { color: inherit; }
 :focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; }
 
@@ -187,11 +235,8 @@ section { scroll-margin-top: 70px; }
 .tab:hover:not([aria-pressed="true"]) { background: var(--signal); }
 .tab b { font-weight: 500; opacity: .6; margin-left: 6px; }
 
-.grid {
-  display: grid; gap: 16px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: start;
-}
+.grid { columns: 3; column-gap: 16px; }
+.grid > * { break-inside: avoid; margin-bottom: 16px; }
 .shot {
   position: relative; margin: 0; padding: 0; border: 2px solid var(--line);
   background: var(--paper-2); cursor: zoom-in; overflow: hidden;
@@ -329,7 +374,7 @@ dialog.lb::backdrop { background: rgba(14,14,13,.94); }
 
 /* ---------- responsive ---------- */
 @media (max-width: 1000px) {
-  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid { columns: 2; }
   .card { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .svc li { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .svc li h3 { grid-column: 1 / -1; }
@@ -347,10 +392,12 @@ dialog.lb::backdrop { background: rgba(14,14,13,.94); }
   .contacts { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 520px) {
-  .grid { grid-template-columns: minmax(0, 1fr); }
+  .grid { columns: 1; }
   .cell { min-height: 120px; padding: 14px; }
 }
 </style>
+</head>
+<body>
 
 <header class="top">
   <div class="wrap">
@@ -368,7 +415,7 @@ dialog.lb::backdrop { background: rgba(14,14,13,.94); }
 <main id="top">
   <section class="hero">
     <div class="wrap hero-grid">
-      <h1 class="name">Perez</h1>
+      <h1 class="name">Perez<span class="sr-only">, universal model</span></h1>
       <figure class="hero-photo">
         <img id="heroImg" src="img/hero.jpg" alt="Perez, black and white portrait with hand on forehead" width="672" height="935" fetchpriority="high">
         <div class="sticker">Fashion / Body / Image<small>Universal model</small></div>
@@ -580,7 +627,7 @@ const CONTACTS = [
     visible = P.items.filter(i => filter === "all" || i.cat === filter);
     let html = visible.map((it, n) =>
       `<button class="shot" type="button" data-n="${n}" aria-label="Open ${CATS[it.cat]} photo ${n + 1}">
-        <img src="${it.src}" width="${it.w}" height="${it.h}" alt="Perez, ${CATS[it.cat].toLowerCase()} photo" loading="lazy">
+        <img src="${it.src}" width="${it.w}" height="${it.h}" alt="Perez model, ${CATS[it.cat].toLowerCase()} photo ${n + 1}" loading="lazy">
         <span class="tag label">${CATS[it.cat]}</span>
       </button>`).join("");
     const empty = Object.keys(CATS).filter(k => (filter === "all" || filter === k) && !P.items.some(i => i.cat === k));
@@ -624,3 +671,5 @@ const CONTACTS = [
   renderTabs(); renderGrid();
 })();
 </script>
+</body>
+</html>
